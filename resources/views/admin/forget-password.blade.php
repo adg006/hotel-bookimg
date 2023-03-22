@@ -23,17 +23,15 @@
                             </div>
 
                             <div class="card-body card-body-auth">
-                                @if(session()->get('success')) 
-                                    <div class="text-success"> {{ (session()->get('success')) }}</div>
-                                @endif
-
                                 <form method="POST" action="{{ route('admin.forget_password.submit') }}">
                                     @csrf
                                     <div class="form-group">
                                         <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email Address" />
 
                                         @error('email') 
-                                            <div class="text-danger"> {{ $message }} </div> 
+                                            <div class="text-danger"> 
+                                                {{ $message }} 
+                                            </div> 
                                         @enderror
 
                                         @if(session()->get('error')) 

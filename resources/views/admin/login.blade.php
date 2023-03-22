@@ -25,9 +25,27 @@
                             <div class="card-body card-body-auth">
                                 <form method="post" action="{{ route('admin.login.submit') }}">
                                     @csrf
+
+                                    @if(session()->get('success')) 
+                                        <div class="text-success"> 
+                                            {{ (session()->get('success')) }}
+                                        </div>
+                                    @endif
+                                    
                                     <div class="form-group">
                                         <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email Address" />
-                                        @error('email') <div class="text-danger"> {{ $message }} </div> @enderror
+
+                                        @error('email') 
+                                            <div class="text-danger"> 
+                                                {{ $message }} 
+                                            </div> 
+                                        @enderror
+
+                                        @if(session()->get('error')) 
+                                            <div class="text-danger"> 
+                                                {{ session()->get('error') }} 
+                                            </div> 
+                                        @endif
                                     </div>
 
                                     <div class="form-group">

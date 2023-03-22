@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -31,7 +32,7 @@ class LoginController extends Controller
         if (Auth::guard('admin')->attempt($credential)) {
             return redirect()->route('admin.dashboard');
         } else {
-            return redirect()->route('admin.login')->with('error', 'Invalid Credentials');
+            return redirect()->route('admin.login')->with('error', 'E-mail or password doesn\'t match');
         }
     }
 
@@ -55,7 +56,7 @@ class LoginController extends Controller
         $admin_data = Admin::where('email', $request->email)->first();
 
         if (!$admin_data) {
-            return redirect()->back()->with('message', 'email addess not found');
+            return redirect()->back()->with('error', 'email addess not found');
         }
 
         $token = hash('sha256', time());
@@ -81,9 +82,21 @@ class LoginController extends Controller
             return redirect()->route('admin.login');
         }
 
+        return view('admin.reset-password', compact('token', 'email'));
+    }
+
+    public function reset_password_submit(Request $request)
+    {
+        $request->validate([
+            'password' => 'required',
+            'retype_password' => 'required|same:password'
+        ]);
+
+        $admin_data = Admin::where('token', $request->token)->where('email', $request->email)->first();
+        $admin_data->password = Hash::make($request->password);
         $admin_data->token = '';
         $admin_data->update();
 
-        return view('admin.reset-password');
+        return redirect()->route('admin.login')->with('success', 'Password reset successfully.');
     }
 }
