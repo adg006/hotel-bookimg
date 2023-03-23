@@ -14,7 +14,7 @@ class LoginController extends Controller
 {
     public function login()
     {
-        return view('admin.login');
+        return view('admin.auth.login');
     }
 
     public function login_submit(Request $request)
@@ -44,7 +44,7 @@ class LoginController extends Controller
 
     public function forget_password()
     {
-        return view('admin.forget-password');
+        return view('admin.auth.password.forget');
     }
 
     public function forget_password_submit(Request $request)
@@ -82,7 +82,7 @@ class LoginController extends Controller
             return redirect()->route('admin.login');
         }
 
-        return view('admin.reset-password', compact('token', 'email'));
+        return view('admin.auth.password.reset', compact('token', 'email'));
     }
 
     public function reset_password_submit(Request $request)

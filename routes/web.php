@@ -15,8 +15,10 @@ use App\Http\Controllers\Admin\LoginController;
 |
 */
 
+/** DASHBOARD CONTROLLER */
 Route::get('/admin/dashboard/', [DashboardController::class, 'dashboard'])->name('admin.dashboard')->middleware('admin:admin');
 
+/** LOGIN CONTROLLER */
 Route::get('/admin/login/', [LoginController::class, 'login'])->name('admin.login');
 Route::post('/admin/login/submit', [LoginController::class, 'login_submit'])->name('admin.login.submit');
 Route::get('/admin/logout/', [LoginController::class, 'logout'])->name('admin.logout');
