@@ -23,15 +23,17 @@
                             </div>
 
                             <div class="card-body card-body-auth">
+                                @if(session()->get('success')) 
+                                    <div class="text-success"> {{ (session()->get('success')) }}</div>
+                                @endif
+
                                 <form method="POST" action="{{ route('admin.forget_password.submit') }}">
                                     @csrf
                                     <div class="form-group">
                                         <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email Address" />
 
                                         @error('email') 
-                                            <div class="text-danger"> 
-                                                {{ $message }} 
-                                            </div> 
+                                            <div class="text-danger"> {{ $message }} </div> 
                                         @enderror
 
                                         @if(session()->get('error')) 
@@ -63,6 +65,38 @@
 </div>
 
 @include('admin.elements.scripts')
+
+@if($errors->any())
+    @foreach ($errors->all() as $error)
+        <script>
+            iziToast.error({
+                title: '',
+                position: 'topRight',
+                message: '{{ $error }}'
+            });
+        </script>
+    @endforeach
+@endif
+
+@if(session()->get('error'))
+    <script>
+        iziToast.error({
+            title: '',
+            position: 'topRight',
+            message: '{{ session()->get('error') }}'
+        });
+    </script>
+@endif
+
+@if(session()->get('success'))
+    <script>
+        iziToast.success({
+            title: '',
+            position: 'topRight',
+            message: '{{ session()->get('success') }}'
+        });
+    </script>
+@endif
 
 </body>
 </html>

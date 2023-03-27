@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Frontend\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,8 @@ use App\Http\Controllers\Admin\LoginController;
 
 /** DASHBOARD CONTROLLER */
 Route::get('/admin/dashboard/', [DashboardController::class, 'dashboard'])->name('admin.dashboard')->middleware('admin:admin');
+Route::get('/admin/profile/edit', [DashboardController::class, 'profile'])->name('admin.profile')->middleware('admin:admin');
+Route::post('/admin/profile/submit', [DashboardController::class, 'profile_submit'])->name('admin.profile.submit')->middleware('admin:admin');
 
 /** LOGIN CONTROLLER */
 Route::get('/admin/login/', [LoginController::class, 'login'])->name('admin.login');
@@ -27,3 +30,6 @@ Route::get('/admin/password/forget', [LoginController::class, 'forget_password']
 Route::post('/admin/password/submit', [LoginController::class, 'forget_password_submit'])->name('admin.forget_password.submit');
 Route::get('/admin/password/verify/{email}/{token}', [LoginController::class, 'verify_password'])->name('admin.verify_password');
 Route::post('/admin/password/verify/submit', [LoginController::class, 'reset_password_submit'])->name('admin.reset_password.submit');
+
+/** PAGE CONTROLLER */
+Route::get('/', [PageController::class, 'home'])->name('home');
