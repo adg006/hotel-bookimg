@@ -12,3 +12,4 @@
 <link rel="stylesheet" href="{{ asset('frontend/css/daterangepicker.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/meanmenu.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500&display=swap">

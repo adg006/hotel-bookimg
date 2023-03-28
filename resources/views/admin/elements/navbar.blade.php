@@ -10,7 +10,7 @@
 
     <ul class="navbar-nav navbar-right">
         <li class="nav-link">
-            <a href="" target="_blank" class="btn btn-warning">Front End</a>
+            <a href="{{ route('home') }}" target="_blank" class="btn btn-warning">Front End</a>
         </li>
         
         <li class="dropdown">

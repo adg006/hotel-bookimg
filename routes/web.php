@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Frontend\PageController;
 
 /*
@@ -20,6 +21,9 @@ use App\Http\Controllers\Frontend\PageController;
 Route::get('/admin/dashboard/', [DashboardController::class, 'dashboard'])->name('admin.dashboard')->middleware('admin:admin');
 Route::get('/admin/profile/edit', [DashboardController::class, 'profile'])->name('admin.profile')->middleware('admin:admin');
 Route::post('/admin/profile/submit', [DashboardController::class, 'profile_submit'])->name('admin.profile.submit')->middleware('admin:admin');
+
+/** SLIDER CONTROLLER */
+Route::get('/admin/slider/', [SliderController::class, 'view'])->name('admin.slider')->middleware('admin:admin');
 
 /** LOGIN CONTROLLER */
 Route::get('/admin/login/', [LoginController::class, 'login'])->name('admin.login');
