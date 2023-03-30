@@ -13,7 +13,7 @@
                 <a class="nav-link" href="{{ route('admin.dashboard') }}"><i class="fas fa-hand-point-right"></i> <span>Dashboard</span></a>
             </li>
 
-            <li class="nav-item dropdown {{ (request()->is('admin/slider')) ? 'active' : '' }}">
+            <li class="nav-item dropdown {{ (request()->is('admin/slider*')) ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Sliders</span></a>
 
                 <ul class="dropdown-menu">
@@ -22,7 +22,7 @@
                     </li>
 
                     <li class="{{ (request()->is('admin/slider/add')) ? 'active' : '' }}">
-                        <a class="nav-link" href=""><i class="fas fa-angle-right"></i> Add</a>
+                        <a class="nav-link" href="{{ route('admin.slider.add') }}"><i class="fas fa-angle-right"></i> Add</a>
                     </li>
                 </ul>
             </li>

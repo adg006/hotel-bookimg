@@ -24,6 +24,11 @@ Route::post('/admin/profile/submit', [DashboardController::class, 'profile_submi
 
 /** SLIDER CONTROLLER */
 Route::get('/admin/slider/', [SliderController::class, 'view'])->name('admin.slider')->middleware('admin:admin');
+Route::get('/admin/slider/add', [SliderController::class, 'add'])->name('admin.slider.add')->middleware('admin:admin');
+Route::post('/admin/slider/store', [SliderController::class, 'store'])->name('admin.slider.store')->middleware('admin:admin');
+Route::get('/admin/slider/edit/{id}', [SliderController::class, 'edit'])->name('admin.slider.edit')->middleware('admin:admin');
+Route::post('/admin/slider/update/{id}', [SliderController::class, 'update'])->name('admin.slider.update')->middleware('admin:admin');
+Route::get('/admin/slider/delete/{id}', [SliderController::class, 'delete'])->name('admin.slider.delete')->middleware('admin:admin');
 
 /** LOGIN CONTROLLER */
 Route::get('/admin/login/', [LoginController::class, 'login'])->name('admin.login');
