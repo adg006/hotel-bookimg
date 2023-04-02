@@ -27,6 +27,20 @@
                 </ul>
             </li>
 
+            <li class="nav-item dropdown {{ (request()->is('admin/features*')) ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Features</span></a>
+
+                <ul class="dropdown-menu">
+                    <li class="{{ (request()->is('admin/features')) ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.features') }}"><i class="fas fa-angle-right"></i> View</a>
+                    </li>
+
+                    <li class="{{ (request()->is('admin/features/add')) ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.features.add') }}"><i class="fas fa-angle-right"></i> Add</a>
+                    </li>
+                </ul>
+            </li>
+
             <li class="">
                 <a class="nav-link" href="setting.html"><i class="fas fa-hand-point-right"></i> <span>Setting</span></a>
             </li>

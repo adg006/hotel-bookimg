@@ -1,14 +1,13 @@
 @extends('admin.elements.app')
 
 @section('main')
-
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>All Sliders</h1>
+                <h1>All Features</h1>
 
                 <div class="ml-auto">
-                    <a href="{{ route('admin.slider.add') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add</a>
+                    <a href="{{ route('admin.features.add') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add</a>
                 </div>
             </div>
 
@@ -22,21 +21,23 @@
                                         <thead>
                                             <tr>
                                                 <th>SL</th>
-                                                <th>Photo</th>
+                                                <th>Icon</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
 
                                         <tbody>
-                                            @foreach ($slider_data as $slider)
-                                            <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td><img src="{{ asset('admin/uploads/' . $slider->photo) }}" class="w_100"></td>
-                                                <td class="pt_10 pb_10">
-                                                    <a href="{{ route('admin.slider.edit', $slider->id) }}" class="btn btn-success">Edit</a>
-                                                    <a href="{{ route('admin.slider.delete', $slider->id) }}" class="btn btn-danger">Delete</a>
-                                                </td>
-                                            </tr>
+                                            @foreach ($feature_data as $feature)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td><i class="{{ $feature->feature_icon }}"></i></td>
+                                                    <td class="pt_10 pb_10">
+                                                        <a href="{{ route('admin.features.edit', $feature->id) }}"
+                                                            class="btn btn-success">Edit</a>
+                                                        <a href="{{ route('admin.features.delete', $feature->id) }}"
+                                                            class="btn btn-danger">Delete</a>
+                                                    </td>
+                                                </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
@@ -48,5 +49,4 @@
             </div>
         </section>
     </div>
-
 @endsection

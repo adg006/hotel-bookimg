@@ -5,7 +5,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Sliders</h1>
+                <h1>Add Slider</h1>
 
                 <div class="ml-auto">
                     <a href="{{ route('admin.slider.add') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add</a>
