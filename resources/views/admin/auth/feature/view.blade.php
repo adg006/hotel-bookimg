@@ -22,6 +22,8 @@
                                             <tr>
                                                 <th>SL</th>
                                                 <th>Icon</th>
+                                                <th>Title</th>
+                                                <th>Description</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -31,6 +33,8 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td><i class="{{ $feature->feature_icon }}"></i></td>
+                                                    <td>{{ $feature->feature_title }}</td>
+                                                    <td>{{ $feature->feature_description }}</td>
                                                     <td class="pt_10 pb_10">
                                                         <a href="{{ route('admin.features.edit', $feature->id) }}"
                                                             class="btn btn-success">Edit</a>
