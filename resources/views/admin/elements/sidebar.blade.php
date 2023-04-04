@@ -55,20 +55,18 @@
                 </ul>
             </li>
 
-            <li class="">
-                <a class="nav-link" href="setting.html"><i class="fas fa-hand-point-right"></i> <span>Setting</span></a>
-            </li>
+            <li class="nav-item dropdown {{ (request()->is('admin/posts*')) ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Posts</span></a>
 
-            <li class="">
-                <a class="nav-link" href="form.html"><i class="fas fa-hand-point-right"></i> <span>Form</span></a>
-            </li>
+                <ul class="dropdown-menu">
+                    <li class="{{ (request()->is('admin/posts')) ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.posts') }}"><i class="fas fa-angle-right"></i> View</a>
+                    </li>
 
-            <li class="">
-                <a class="nav-link" href="table.html"><i class="fas fa-hand-point-right"></i> <span>Table</span></a>
-            </li>
-
-            <li class="">
-                <a class="nav-link" href="invoice.html"><i class="fas fa-hand-point-right"></i> <span>Invoice</span></a>
+                    <li class="{{ (request()->is('admin/posts/add')) ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.posts.add') }}"><i class="fas fa-angle-right"></i> Add</a>
+                    </li>
+                </ul>
             </li>
         </ul>
     </aside>
