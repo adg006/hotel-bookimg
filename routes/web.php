@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\FeatureController;
+use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Frontend\PageController;
 
 /*
@@ -38,6 +39,14 @@ Route::post('/admin/features/store', [FeatureController::class, 'store'])->name(
 Route::get('/admin/features/edit/{id}', [FeatureController::class, 'edit'])->name('admin.features.edit')->middleware('admin:admin');
 Route::post('/admin/features/update/{id}', [FeatureController::class, 'update'])->name('admin.features.update')->middleware('admin:admin');
 Route::get('/admin/features/delete/{id}', [FeatureController::class, 'delete'])->name('admin.features.delete')->middleware('admin:admin');
+
+/** TESTIMONIAL CONTROLLER */
+Route::get('/admin/testimonials/', [TestimonialController::class, 'view'])->name('admin.testimonials')->middleware('admin:admin');
+Route::get('/admin/testimonials/add', [TestimonialController::class, 'add'])->name('admin.testimonials.add')->middleware('admin:admin');
+Route::post('/admin/testimonials/store', [TestimonialController::class, 'store'])->name('admin.testimonials.store')->middleware('admin:admin');
+Route::get('/admin/testimonials/edit/{id}', [TestimonialController::class, 'edit'])->name('admin.testimonials.edit')->middleware('admin:admin');
+Route::post('/admin/testimonials/update/{id}', [TestimonialController::class, 'update'])->name('admin.testimonials.update')->middleware('admin:admin');
+Route::get('/admin/testimonials/delete/{id}', [TestimonialController::class, 'delete'])->name('admin.testimonials.delete')->middleware('admin:admin');
 
 /** LOGIN CONTROLLER */
 Route::get('/admin/login/', [LoginController::class, 'login'])->name('admin.login');
