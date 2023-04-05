@@ -1,13 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\FAQController;
+use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\LoginController;
-use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\FeatureController;
+use App\Http\Controllers\Frontend\BlogController;
+use App\Http\Controllers\Frontend\FAQsController;
+use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Frontend\GalleryController;
 use App\Http\Controllers\Admin\TestimonialController;
-use App\Http\Controllers\Admin\PostController;
-use App\Http\Controllers\Frontend\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +63,30 @@ Route::get('/admin/posts/edit/{id}', [PostController::class, 'edit'])->name('adm
 Route::post('/admin/posts/update/{id}', [PostController::class, 'update'])->name('admin.posts.update')->middleware('admin:admin');
 Route::get('/admin/posts/delete/{id}', [PostController::class, 'delete'])->name('admin.posts.delete')->middleware('admin:admin');
 
+/** IMAGE CONTROLLER */
+Route::get('/admin/images/', [ImageController::class, 'view'])->name('admin.images')->middleware('admin:admin');
+Route::get('/admin/images/add', [ImageController::class, 'add'])->name('admin.images.add')->middleware('admin:admin');
+Route::post('/admin/images/store', [ImageController::class, 'store'])->name('admin.images.store')->middleware('admin:admin');
+Route::get('/admin/images/edit/{id}', [ImageController::class, 'edit'])->name('admin.images.edit')->middleware('admin:admin');
+Route::post('/admin/images/update/{id}', [ImageController::class, 'update'])->name('admin.images.update')->middleware('admin:admin');
+Route::get('/admin/images/delete/{id}', [ImageController::class, 'delete'])->name('admin.images.delete')->middleware('admin:admin');
+
+/** VIDEO CONTROLLER */
+Route::get('/admin/videos/', [VideoController::class, 'view'])->name('admin.videos')->middleware('admin:admin');
+Route::get('/admin/videos/add', [VideoController::class, 'add'])->name('admin.videos.add')->middleware('admin:admin');
+Route::post('/admin/videos/store', [VideoController::class, 'store'])->name('admin.videos.store')->middleware('admin:admin');
+Route::get('/admin/videos/edit/{id}', [VideoController::class, 'edit'])->name('admin.videos.edit')->middleware('admin:admin');
+Route::post('/admin/videos/update/{id}', [VideoController::class, 'update'])->name('admin.videos.update')->middleware('admin:admin');
+Route::get('/admin/videos/delete/{id}', [VideoController::class, 'delete'])->name('admin.videos.delete')->middleware('admin:admin');
+
+/** FAQ CONTROLLER */
+Route::get('/admin/faq/', [FaqController::class, 'view'])->name('admin.faq')->middleware('admin:admin');
+Route::get('/admin/faq/add', [FaqController::class, 'add'])->name('admin.faq.add')->middleware('admin:admin');
+Route::post('/admin/faq/store', [FaqController::class, 'store'])->name('admin.faq.store')->middleware('admin:admin');
+Route::get('/admin/faq/edit/{id}', [FaqController::class, 'edit'])->name('admin.faq.edit')->middleware('admin:admin');
+Route::post('/admin/faq/update/{id}', [FaqController::class, 'update'])->name('admin.faq.update')->middleware('admin:admin');
+Route::get('/admin/faq/delete/{id}', [FaqController::class, 'delete'])->name('admin.faq.delete')->middleware('admin:admin');
+
 /** LOGIN CONTROLLER */
 Route::get('/admin/login/', [LoginController::class, 'login'])->name('admin.login');
 Route::post('/admin/login/submit', [LoginController::class, 'login_submit'])->name('admin.login.submit');
@@ -68,4 +98,9 @@ Route::get('/admin/password/verify/{email}/{token}', [LoginController::class, 'v
 Route::post('/admin/password/verify/submit', [LoginController::class, 'reset_password_submit'])->name('admin.reset_password.submit');
 
 /** PAGE CONTROLLER */
-Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/blog', [BlogController::class, 'blog'])->name('blog');
+Route::get('/blog/{id}', [BlogController::class, 'blog_detail'])->name('blog.detail');
+Route::get('/photo', [GalleryController::class, 'photo'])->name('gallery.photo');
+Route::get('/video', [GalleryController::class, 'video'])->name('gallery.video');
+Route::get('/faq', [FaqsController::class, 'faq'])->name('faq');

@@ -4,10 +4,10 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>All Posts</h1>
+                <h1>All Images</h1>
 
                 <div class="ml-auto">
-                    <a href="{{ route('admin.posts.add') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add</a>
+                    <a href="{{ route('admin.images.add') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add</a>
                 </div>
             </div>
 
@@ -22,26 +22,22 @@
                                             <tr>
                                                 <th>SL</th>
                                                 <th>Photo</th>
-                                                <th>Title</th>
-                                                <th>Total View</th>
-                                                <th>Date</th>
+                                                <th>Description</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
 
                                         <tbody>
-                                            @foreach ($post_data as $post)
+                                            @foreach ($image_data as $image)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td><img src="{{ asset('admin/uploads/' . $post->photo) }}"
+                                                    <td><img src="{{ asset('admin/uploads/' . $image->photo) }}"
                                                             class="w_100"></td>
-                                                    <td>{{ $post->title }}</td>
-                                                    <td>{{ $post->total_view }}</td>
-                                                    <td>{{ $post->created_at }}</td>
+                                                    <td>{{ $image->description }}</td>
                                                     <td class="pt_10 pb_10">
-                                                        <a href="{{ route('admin.posts.edit', $post->id) }}"
+                                                        <a href="{{ route('admin.images.edit', $image->id) }}"
                                                             class="btn btn-success">Edit</a>
-                                                        <a href="{{ route('admin.posts.delete', $post->id) }}"
+                                                        <a href="{{ route('admin.images.delete', $image->id) }}"
                                                             class="btn btn-danger">Delete</a>
                                                     </td>
                                                 </tr>

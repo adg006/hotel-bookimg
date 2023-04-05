@@ -8,17 +8,19 @@ use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
-    public function view() {
+    public function view()
+    {
         $post_data = Post::all();
         return view('admin.auth.post.view', compact('post_data'));
     }
 
-    public function add() {
+    public function add()
+    {
         return view('admin.auth.post.add');
     }
-    
+
     public function store(Request $request)
-    {   
+    {
         $post_data = new Post();
 
         $request->validate([
@@ -45,43 +47,45 @@ class PostController extends Controller
         return redirect()->back()->with('success', 'Post created successfully');
     }
 
-    public function edit($id) {
-        // $slider_data = Slider::where('id', $id)->first();
-        // return view('admin.auth.slider.edit', compact('slider_data'));
+    public function edit($id)
+    {
+        $post_data = Post::where('id', $id)->first();
+        return view('admin.auth.post.edit', compact('post_data'));
     }
 
-    public function update(Request $request, $id) {
-        // $slider_data = Slider::where('id', $id)->first();
+    public function update(Request $request, $id)
+    {
+        $post_data = Post::where('id', $id)->first();
 
-        // if ($request->hasFile('photo')) {
-        //     $request->validate([
-        //         'photo' => 'image|mimes:jpg,jpeg,png,svg,gif'
-        //     ]);
+        if ($request->hasFile('photo')) {
+            $request->validate([
+                'photo' => 'image|mimes:jpg,jpeg,png,svg,gif'
+            ]);
 
-        //     unlink(public_path('/admin/uploads/' . $slider_data->photo));
+            unlink(public_path('/admin/uploads/' . $post_data->photo));
 
-        //     $ext = $request->file('photo')->extension();
-        //     $final_name = time() . '.' . $ext;
+            $ext = $request->file('photo')->extension();
+            $final_name = time() . '.' . $ext;
 
-        //     $request->file('photo')->move(public_path('/admin/uploads/'), $final_name);
-        //     $slider_data->photo = $final_name;
-        // }
+            $request->file('photo')->move(public_path('/admin/uploads/'), $final_name);
+            $post_data->photo = $final_name;
+        }
 
-        // $slider_data->heading = $request->heading;
-        // $slider_data->sub_heading = $request->sub_heading;
-        // $slider_data->button_text = $request->button_text;
-        // $slider_data->button_url = $request->button_url;
+        $post_data->title = $request->title;
+        $post_data->short_content = $request->short_content;
+        $post_data->long_content = $request->long_content;
 
-        // $slider_data->update();
+        $post_data->update();
 
-        // return redirect()->back()->with('success', 'Slider updated successfully');     
+        return redirect()->back()->with('success', 'Post updated successfully');
     }
 
-    public function delete($id) {
-        // $slider_data = Slider::where('id', $id)->first();
-        // unlink(public_path('/admin/uploads/' . $slider_data->photo));
-        // $slider_data->delete();
+    public function delete($id)
+    {
+        $post_data = Post::where('id', $id)->first();
+        unlink(public_path('/admin/uploads/' . $post_data->photo));
+        $post_data->delete();
 
-        // return redirect()->back()->with('success', 'Slider deleted successfully');    
+        return redirect()->back()->with('success', 'Post deleted successfully');
     }
 }

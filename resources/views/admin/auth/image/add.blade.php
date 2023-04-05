@@ -4,10 +4,10 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Add Post</h1>
+                <h1>Add Image</h1>
 
                 <div class="ml-auto">
-                    <a href="{{ route('admin.posts.add') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add</a>
+                    <a href="{{ route('admin.images.add') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add</a>
                 </div>
             </div>
 
@@ -16,7 +16,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('admin.posts.store') }}" method="post"
+                                <form action="{{ route('admin.images.store') }}" method="post"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
@@ -27,20 +27,9 @@
                                             </div>
 
                                             <div class="mb-4">
-                                                <label class="form-label">Title*</label>
-                                                <input type="text" class="form-control" name="title"
-                                                    value="{{ old('title') }}">
-                                            </div>
-
-                                            <div class="mb-4">
-                                                <label class="form-label">Short Content*</label>
-                                                <input type="text" class="form-control" name="short_content"
-                                                    value="{{ old('short_content') }}">
-                                            </div>
-
-                                            <div class="mb-4">
-                                                <label class="form-label">Long Content*</label>
-                                                <textarea class="form-control snote" name="long_content">{!! old('long_content') !!}</textarea>
+                                                <label class="form-label">Description*</label>
+                                                <input type="text" class="form-control" name="description"
+                                                    value="{{ old('description') }}">
                                             </div>
 
                                             <div class="mb-4">

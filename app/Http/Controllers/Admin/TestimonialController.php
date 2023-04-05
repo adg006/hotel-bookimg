@@ -8,17 +8,19 @@ use App\Models\Admin\Testimonial;
 
 class TestimonialController extends Controller
 {
-    public function view() {
+    public function view()
+    {
         $testimonial_data = Testimonial::all();
         return view('admin.auth.testimonial.view', compact('testimonial_data'));
     }
 
-    public function add() {
+    public function add()
+    {
         return view('admin.auth.testimonial.add');
     }
-    
+
     public function store(Request $request)
-    {   
+    {
         $testimonial_data = new Testimonial();
 
         $request->validate([
@@ -44,12 +46,14 @@ class TestimonialController extends Controller
         return redirect()->back()->with('success', 'Testimonial added successfully');
     }
 
-    public function edit($id) {
+    public function edit($id)
+    {
         $testimonial_data = Testimonial::where('id', $id)->first();
         return view('admin.auth.testimonial.edit', compact('testimonial_data'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         $testimonial_data = Testimonial::where('id', $id)->first();
 
         if ($request->hasFile('photo')) {
@@ -72,14 +76,15 @@ class TestimonialController extends Controller
 
         $testimonial_data->update();
 
-        return redirect()->back()->with('success', 'Testimonial updated successfully');       
+        return redirect()->back()->with('success', 'Testimonial updated successfully');
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
         $testimonial_data = Testimonial::where('id', $id)->first();
         unlink(public_path('/admin/uploads/' . $testimonial_data->photo));
         $testimonial_data->delete();
 
-        return redirect()->back()->with('success', 'Testimonial deleted successfully');       
+        return redirect()->back()->with('success', 'Testimonial deleted successfully');
     }
 }

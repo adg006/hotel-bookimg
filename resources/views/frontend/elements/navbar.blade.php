@@ -1,7 +1,7 @@
 <div class="navbar-area" id="stickymenu">
 
     <div class="mobile-nav">
-        <a href="#" class="logo">
+        <a href="{{ route('home') }}" class="logo">
             <img src="{{ asset('frontend/uploads/logo.png') }}" alt="">
         </a>
     </div>
@@ -9,14 +9,14 @@
     <div class="main-nav">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{ route('home') }}">
                     <img src="{{ asset('frontend/uploads/logo.png') }}" alt="">
                 </a>
 
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">        
+                    <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Home</a>
+                            <a href="{{ route('home') }}" class="nav-link">Home</a>
                         </li>
 
                         <li class="nav-item">
@@ -54,17 +54,17 @@
 
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">Photo Gallery</a>
+                                    <a href="{{ route('gallery.photo') }}" class="nav-link">Photo Gallery</a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">Video Gallery</a>
+                                    <a href="{{ route('gallery.video') }}" class="nav-link">Video Gallery</a>
                                 </li>
                             </ul>
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Blog</a>
+                            <a href="{{ route('blog') }}" class="nav-link">Blog</a>
                         </li>
 
                         <li class="nav-item">
