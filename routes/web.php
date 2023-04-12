@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Frontend\BlogController;
-use App\Http\Controllers\Frontend\FAQsController;
+use App\Http\Controllers\Frontend\FaqsController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\GalleryController;
