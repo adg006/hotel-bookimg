@@ -24,6 +24,11 @@
                             About</a>
                     </li>
 
+                    <li class="{{ request()->is('admin/pages/contact') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.pages.contact') }}"><i class="fas fa-angle-right"></i>
+                            Contact</a>
+                    </li>
+
                     <li class="{{ request()->is('admin/pages/tnc') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('admin.pages.tnc') }}"><i class="fas fa-angle-right"></i>
                             TnC</a>

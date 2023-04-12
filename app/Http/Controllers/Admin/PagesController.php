@@ -52,4 +52,19 @@ class PagesController extends Controller
 
         return redirect()->back()->with('success', 'Privacy policy page updated successfully');
     }
+
+    public function contact(){
+        $contact_data = Page::where('name', 'contact')->first();
+        return view('admin.auth.pages.contact', compact('contact_data'));
+    }
+
+    public function contact_update(Request $request) {
+        $contact_data = Page::where('name', 'contact')->first();
+        
+        $contact_data->title = $request->title;
+        $contact_data->content = $request->content;
+        $contact_data->update();
+
+        return redirect()->back()->with('success', 'Contact page updated successfully');
+    }
 }
