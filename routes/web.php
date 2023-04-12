@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\FAQController;
+use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\LoginController;
@@ -11,7 +11,7 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Frontend\TnCController;
 use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Frontend\BlogController;
-use App\Http\Controllers\Frontend\FAQsController;
+use App\Http\Controllers\Frontend\FaqsController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Admin\DashboardController;
