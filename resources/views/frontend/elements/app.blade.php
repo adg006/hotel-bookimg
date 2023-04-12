@@ -15,7 +15,7 @@
 
         @include('frontend.elements.navbar') 
 
-        @yield('main');
+        @yield('main')
 
         @include('frontend.elements.footer')
 		

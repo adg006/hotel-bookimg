@@ -113,6 +113,7 @@ Route::get('/about', [AboutController::class, 'about'])->name('about');
 Route::get('/terms-and-conditions', [TnCController::class, 'tnc'])->name('tnc');
 Route::get('/privacy-policy', [PrivacyController::class, 'privacy'])->name('privacy');
 Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
+Route::post('/contact/email/send', [ContactController::class, 'email'])->name('send.email');
 
 Route::get('/admin/pages/about', [PagesController::class, 'about'])->name('admin.pages.about');
 Route::post('/admin/pages/about/update', [PagesController::class, 'about_update'])->name('admin.pages.about.update');

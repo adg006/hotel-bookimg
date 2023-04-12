@@ -2,6 +2,43 @@
 
 	"use strict";
 
+	$(".form_subscribe_ajax").on('submit', function (e) {
+		e.preventDefault();
+		$('#loader').show();
+		var form = this;
+
+		$.ajax({
+			url: $(form).attr('action'),
+			method: $(form).attr('method'),
+			data: new FormData(form),
+			processData: false,
+			dataType: 'json',
+			contentType: false,
+
+			beforeSend: function () {
+				$(form).find('span.error-text').text('');
+			},
+
+			success: function (data) {
+				$("#loader").hide();
+
+				if(data.code == 0) {
+					$.each(data.error_message, function (prefix, val) {
+						$(form).find('span.' + prefix + '_error').text(val[0]);
+					});
+				} else if(data.code == 1) {
+					$(form)[0].reset();
+
+					iziToast.success({
+						title: '',
+						position: 'topRight',
+						message: data.success_message
+					});
+				}
+			}
+		});
+	});
+
 	$(".scroll-top").hide();
 	$(window).on("scroll", function () {
 		if ($(this).scrollTop() > 300) {
@@ -16,87 +53,84 @@
 		}, 700)
 	});
 
-	$(document).ready(function() {
+	$(document).ready(function () {
 		$('.select2').select2({
 			theme: "bootstrap"
 		});
 
-		$('#checkShipping').on('change',function() {
-	        $('.shipping-form').toggle();
-	    });
+		$('#checkShipping').on('change', function () {
+			$('.shipping-form').toggle();
+		});
 
 		$('.paypal').hide();
-	    $('.stripe').hide();
-	    $('.bank').hide();
-	    $('.cash-on-delivery').hide();
+		$('.stripe').hide();
+		$('.bank').hide();
+		$('.cash-on-delivery').hide();
 
 
-		$('#paymentMethodChange').on('change',function() {
+		$('#paymentMethodChange').on('change', function () {
 
-		    if($('#paymentMethodChange').val() == 'PayPal')
-		    {
-		        $('.paypal').show();
-		        $('.stripe').hide();
-		        $('.bank').hide();
-		        $('.cash-on-delivery').hide();
-		    }
-		    else if($('#paymentMethodChange').val() == 'Stripe')
-		    {
-		        $('.paypal').hide();
-		        $('.stripe').show();
-		        $('.bank').hide();
-		        $('.cash-on-delivery').hide();
-		    }
-		    else if($('#paymentMethodChange').val() == '')
-		    {
-		    	$('.paypal').hide();
-		        $('.stripe').hide();
-		        $('.bank').hide();
-		        $('.cash-on-delivery').hide();
-		    }
+			if ($('#paymentMethodChange').val() == 'PayPal') {
+				$('.paypal').show();
+				$('.stripe').hide();
+				$('.bank').hide();
+				$('.cash-on-delivery').hide();
+			}
+			else if ($('#paymentMethodChange').val() == 'Stripe') {
+				$('.paypal').hide();
+				$('.stripe').show();
+				$('.bank').hide();
+				$('.cash-on-delivery').hide();
+			}
+			else if ($('#paymentMethodChange').val() == '') {
+				$('.paypal').hide();
+				$('.stripe').hide();
+				$('.bank').hide();
+				$('.cash-on-delivery').hide();
+			}
 
 		});
 
 	});
-		
+
 	new WOW().init();
 
 	$('.video-button').magnificPopup({
-	  	type: 'iframe',
-		gallery:{
-			enabled:true
+		type: 'iframe',
+		gallery: {
+			enabled: true
 		}
 	});
 
 	$('.magnific').magnificPopup({
-	  	type: 'image',
-		gallery:{
-			enabled:true
+		type: 'image',
+		gallery: {
+			enabled: true
 		}
 	});
 
-    $('.slide-carousel').owlCarousel({
-        loop: true,
-        autoplay: false,
-        autoplayHoverPause: true,
-        margin: 0,
-        mouseDrag: false,
-        animateIn: 'fadeIn',
-        animateOut: 'fadeOut',
-        nav: true,
-        navText: ["<i class='fa fa-caret-left'></i>", "<i class='fa fa-caret-right'></i>"],
-        responsive: {
-            0: {
-                items: 1
-            },
-            600: {
-                items: 1
-            },
-            1000: {
-                items: 1
-            }
-        }
-    });
+	$('.slide-carousel').owlCarousel({
+		loop: true,
+		autoplay: false,
+		autoplayHoverPause: true,
+		margin: 0,
+		mouseDrag: false,
+		animateIn: 'fadeIn',
+		animateOut: 'fadeOut',
+		nav: true,
+		navText: ["<i class='fa fa-caret-left'></i>", "<i class='fa fa-caret-right'></i>"],
+		responsive: {
+			0: {
+				items: 1
+			},
+			600: {
+				items: 1
+			},
+			1000: {
+				items: 1
+			}
+		}
+	});
 
 	$('.testimonial-carousel').owlCarousel({
 		loop: true,
@@ -107,7 +141,7 @@
 		margin: 30,
 		nav: false,
 		animateIn: 'fadeIn',
-        animateOut: 'fadeOut',
+		animateOut: 'fadeOut',
 		navText: ["<i class='fa fa-caret-left'></i>", "<i class='fa fa-caret-right'></i>"],
 		responsive: {
 			0: {
@@ -125,54 +159,54 @@
 	});
 
 	$('.room-detail-carousel').owlCarousel({
-        loop: true,
-        autoplay: false,
-        autoplayHoverPause: true,
-        margin: 0,
-        mouseDrag: false,
-        animateIn: 'fadeIn',
-        animateOut: 'fadeOut',
-        nav: true,
-        navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-        responsive: {
-            0: {
-                items: 1
-            },
-            600: {
-                items: 1
-            },
-            1000: {
-                items: 1
-            }
-        }
-    });
+		loop: true,
+		autoplay: false,
+		autoplayHoverPause: true,
+		margin: 0,
+		mouseDrag: false,
+		animateIn: 'fadeIn',
+		animateOut: 'fadeOut',
+		nav: true,
+		navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+		responsive: {
+			0: {
+				items: 1
+			},
+			600: {
+				items: 1
+			},
+			1000: {
+				items: 1
+			}
+		}
+	});
 
 	jQuery('.mean-menu').meanmenu({
 		meanScreenWidth: "991"
 	});
 
-    $('.daterange1').daterangepicker({
-        autoUpdateInput: false,
-        minDate:new Date(),
+	$('.daterange1').daterangepicker({
+		autoUpdateInput: false,
+		minDate: new Date(),
 		"showDropdowns": false,
-        locale: {
-            format: 'DD/MM/YYYY',
-            cancelLabel: 'Clear'
-        }
-    });
-  
-    $('.daterange1').on('apply.daterangepicker', function(ev, picker) {
-        $(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
-    });
-  
-    $('.daterange1').on('cancel.daterangepicker', function(ev, picker) {
-        $(this).val('');
-    });
+		locale: {
+			format: 'DD/MM/YYYY',
+			cancelLabel: 'Clear'
+		}
+	});
 
-	if($(window).width() > 767) {
+	$('.daterange1').on('apply.daterangepicker', function (ev, picker) {
+		$(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
+	});
+
+	$('.daterange1').on('cancel.daterangepicker', function (ev, picker) {
+		$(this).val('');
+	});
+
+	if ($(window).width() > 767) {
 		$("#sticky_sidebar").stickit({
 			top: 80,
 		})
 	}
-	
+
 })(jQuery);
