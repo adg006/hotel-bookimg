@@ -20,8 +20,8 @@
 
                     <ul class="useful-links">
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">Terms and Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="{{ route('tnc') }}">Terms and Conditions</a></li>
+                        <li><a href="{{ route('privacy') }}">Privacy Policy</a></li>
                         <li><a href="#">Disclaimer</a></li>
                         <li><a href="{{ route('faq') }}">FAQ</a></li>
                     </ul>

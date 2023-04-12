@@ -14,6 +14,28 @@
                     <span>Dashboard</span></a>
             </li>
 
+            <li class="nav-item dropdown {{ request()->is('admin/pages*') ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown"><i
+                        class="fas fa-hand-point-right"></i><span>Pages</span></a>
+
+                <ul class="dropdown-menu">
+                    <li class="{{ request()->is('admin/pages/about') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.pages.about') }}"><i class="fas fa-angle-right"></i>
+                            About</a>
+                    </li>
+
+                    <li class="{{ request()->is('admin/pages/tnc') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.pages.tnc') }}"><i class="fas fa-angle-right"></i>
+                            TnC</a>
+                    </li>
+
+                    <li class="{{ request()->is('admin/pages/privacy') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.pages.privacy') }}"><i class="fas fa-angle-right"></i>
+                            Privacy Policy</a>
+                    </li>
+                </ul>
+            </li>
+
             <li class="nav-item dropdown {{ request()->is('admin/slider*') ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i
                         class="fas fa-hand-point-right"></i><span>Sliders</span></a>

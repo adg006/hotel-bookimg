@@ -5,14 +5,18 @@ use App\Http\Controllers\Admin\FAQController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Frontend\TnCController;
 use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\FAQsController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\GalleryController;
+use App\Http\Controllers\Frontend\PrivacyController;
 use App\Http\Controllers\Admin\TestimonialController;
 
 /*
@@ -104,3 +108,13 @@ Route::get('/blog/{id}', [BlogController::class, 'blog_detail'])->name('blog.det
 Route::get('/photo', [GalleryController::class, 'photo'])->name('gallery.photo');
 Route::get('/video', [GalleryController::class, 'video'])->name('gallery.video');
 Route::get('/faq', [FaqsController::class, 'faq'])->name('faq');
+Route::get('/about', [AboutController::class, 'about'])->name('about');
+Route::get('/terms-and-conditions', [TnCController::class, 'tnc'])->name('tnc');
+Route::get('/privacy-policy', [PrivacyController::class, 'privacy'])->name('privacy');
+
+Route::get('/admin/pages/about', [PagesController::class, 'about'])->name('admin.pages.about');
+Route::post('/admin/pages/about/update', [PagesController::class, 'about_update'])->name('admin.pages.about.update');
+Route::get('/admin/pages/tnc', [PagesController::class, 'tnc'])->name('admin.pages.tnc');
+Route::post('/admin/pages/tnc/update', [PagesController::class, 'tnc_update'])->name('admin.pages.tnc.update');
+Route::get('/admin/pages/privacy', [PagesController::class, 'privacy'])->name('admin.pages.privacy');
+Route::post('/admin/pages/privacy/update', [PagesController::class, 'privacy_update'])->name('admin.pages.privacy.update');
