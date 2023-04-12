@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\FAQController;
+use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\LoginController;
