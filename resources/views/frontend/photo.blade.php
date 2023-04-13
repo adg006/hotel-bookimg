@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Photo Gallery</h2>
+                    <h2>{{ $image_title->title }}</h2>
                 </div>
             </div>
         </div>

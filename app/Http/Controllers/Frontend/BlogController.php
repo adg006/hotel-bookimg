@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Admin\Page;
 use App\Models\Admin\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -11,7 +12,8 @@ class BlogController extends Controller
     public function blog()
     {
         $post_data = Post::orderBy('id', 'desc')->paginate(3);
-        return view('frontend.blog', compact('post_data'));
+        $post_title = Page::where('name', 'blog')->first();
+        return view('frontend.blog', compact('post_data', 'post_title'));
     }
 
     public function blog_detail($id)

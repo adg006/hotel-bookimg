@@ -67,4 +67,60 @@ class PagesController extends Controller
 
         return redirect()->back()->with('success', 'Contact page updated successfully');
     }
+
+    public function image(){
+        $image_data = Page::where('name', 'image')->first();
+        return view('admin.auth.pages.image', compact('image_data'));
+    }
+
+    public function image_update(Request $request) {
+        $image_data = Page::where('name', 'image')->first();
+        
+        $image_data->title = $request->title;
+        $image_data->update();
+
+        return redirect()->back()->with('success', 'Image page updated successfully');
+    }
+
+    public function video(){
+        $video_data = Page::where('name', 'video')->first();
+        return view('admin.auth.pages.video', compact('video_data'));
+    }
+
+    public function video_update(Request $request) {
+        $video_data = Page::where('name', 'video')->first();
+        
+        $video_data->title = $request->title;
+        $video_data->update();
+
+        return redirect()->back()->with('success', 'Video page updated successfully');
+    }
+
+    public function blog(){
+        $blog_data = Page::where('name', 'blog')->first();
+        return view('admin.auth.pages.blog', compact('blog_data'));
+    }
+
+    public function blog_update(Request $request) {
+        $blog_data = Page::where('name', 'blog')->first();
+        
+        $blog_data->title = $request->title;
+        $blog_data->update();
+
+        return redirect()->back()->with('success', 'Blog page updated successfully');
+    }
+
+    public function faq(){
+        $faq_data = Page::where('name', 'faq')->first();
+        return view('admin.auth.pages.faq', compact('faq_data'));
+    }
+
+    public function faq_update(Request $request) {
+        $faq_data = Page::where('name', 'faq')->first();
+        
+        $faq_data->title = $request->title;
+        $faq_data->update();
+
+        return redirect()->back()->with('success', 'FAQ page updated successfully');
+    }
 }

@@ -24,6 +24,26 @@
                             About</a>
                     </li>
 
+                    <li class="{{ request()->is('admin/pages/image') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.pages.image') }}"><i class="fas fa-angle-right"></i>
+                            Image</a>
+                    </li>
+
+                    <li class="{{ request()->is('admin/pages/video') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.pages.video') }}"><i class="fas fa-angle-right"></i>
+                            Video</a>
+                    </li>
+
+                    <li class="{{ request()->is('admin/pages/blog') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.pages.blog') }}"><i class="fas fa-angle-right"></i>
+                            Blog</a>
+                    </li>
+
+                    <li class="{{ request()->is('admin/pages/faq') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.pages.faq') }}"><i class="fas fa-angle-right"></i>
+                            FAQ</a>
+                    </li>
+
                     <li class="{{ request()->is('admin/pages/contact') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('admin.pages.contact') }}"><i class="fas fa-angle-right"></i>
                             Contact</a>

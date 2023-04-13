@@ -123,3 +123,11 @@ Route::get('/admin/pages/privacy', [PagesController::class, 'privacy'])->name('a
 Route::post('/admin/pages/privacy/update', [PagesController::class, 'privacy_update'])->name('admin.pages.privacy.update');
 Route::get('/admin/pages/contact', [PagesController::class, 'contact'])->name('admin.pages.contact');
 Route::post('/admin/pages/contact/update', [PagesController::class, 'contact_update'])->name('admin.pages.contact.update');
+Route::get('/admin/pages/image', [PagesController::class, 'image'])->name('admin.pages.image');
+Route::post('/admin/pages/image/update', [PagesController::class, 'image_update'])->name('admin.pages.image.update');
+Route::get('/admin/pages/video', [PagesController::class, 'video'])->name('admin.pages.video');
+Route::post('/admin/pages/video/update', [PagesController::class, 'video_update'])->name('admin.pages.video.update');
+Route::get('/admin/pages/blog', [PagesController::class, 'blog'])->name('admin.pages.blog');
+Route::post('/admin/pages/blog/update', [PagesController::class, 'blog_update'])->name('admin.pages.blog.update');
+Route::get('/admin/pages/faq', [PagesController::class, 'faq'])->name('admin.pages.faq');
+Route::post('/admin/pages/faq/update', [PagesController::class, 'faq_update'])->name('admin.pages.faq.update');

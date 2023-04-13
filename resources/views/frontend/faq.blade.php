@@ -1,6 +1,6 @@
 @extends('frontend.elements.app')
 
-@section('title', 'Photo Gallery')
+@section('title', 'Frequently Asked Questions')
 
 @section('main')
 
@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>FAQs</h2>
+                    <h2>{{ $faq_title->title }}</h2>
                 </div>
             </div>
         </div>
