@@ -58,6 +58,31 @@
                         <a class="nav-link" href="{{ route('admin.pages.privacy') }}"><i class="fas fa-angle-right"></i>
                             Privacy Policy</a>
                     </li>
+
+                    <li class="{{ request()->is('admin/pages/cart') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.pages.cart') }}"><i class="fas fa-angle-right"></i>
+                            Cart</a>
+                    </li>
+
+                    <li class="{{ request()->is('admin/pages/checkout') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.pages.checkout') }}"><i class="fas fa-angle-right"></i>
+                            Checkout</a>
+                    </li>
+
+                    <li class="{{ request()->is('admin/pages/payment') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.pages.payment') }}"><i class="fas fa-angle-right"></i>
+                            Payment</a>
+                    </li>
+
+                    <li class="{{ request()->is('admin/pages/signup') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.pages.signup') }}"><i class="fas fa-angle-right"></i>
+                            Sign Up</a>
+                    </li>
+
+                    <li class="{{ request()->is('admin/pages/login') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.pages.login') }}"><i class="fas fa-angle-right"></i>
+                            Log In</a>
+                    </li>
                 </ul>
             </li>
 

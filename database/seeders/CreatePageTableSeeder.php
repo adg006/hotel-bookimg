@@ -57,6 +57,31 @@ class CreatePageTableSeeder extends Seeder
                 'name' => 'faq',
                 'title' => 'FAQ',
                 'content' => ''
+            ],
+            [
+                'name' => 'cart',
+                'title' => 'Cart',
+                'content' => ''
+            ],
+            [
+                'name' => 'checkout',
+                'title' => 'Checkout',
+                'content' => ''
+            ],
+            [
+                'name' => 'payment',
+                'title' => 'Payment',
+                'content' => ''
+            ],
+            [
+                'name' => 'signup',
+                'title' => 'Sign Up',
+                'content' => ''
+            ],
+            [
+                'name' => 'signin',
+                'title' => 'Sign In',
+                'content' => ''
             ]
         ]);
     }

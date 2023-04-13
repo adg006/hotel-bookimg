@@ -9,10 +9,10 @@
             </div>
             <div class="col-md-6 right-side">
                 <ul class="right">
-                    <li class="menu"><a href="#">Cart</a></li>
-                    <li class="menu"><a href="#">Checkout</a></li>
-                    <li class="menu"><a href="#">Sign Up</a></li>
-                    <li class="menu"><a href="#">Login</a></li>
+                    <li class="menu"><a href="{{ route('cart') }}">Cart</a></li>
+                    <li class="menu"><a href="{{ route('checkout') }}">Checkout</a></li>
+                    <li class="menu"><a href="{{ route('signup') }}">Sign Up</a></li>
+                    <li class="menu"><a href="{{ route('login') }}">Login</a></li>
                 </ul>
             </div>
         </div>
