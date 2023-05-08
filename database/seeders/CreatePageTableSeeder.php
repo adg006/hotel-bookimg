@@ -79,8 +79,8 @@ class CreatePageTableSeeder extends Seeder
                 'content' => ''
             ],
             [
-                'name' => 'signin',
-                'title' => 'Sign In',
+                'name' => 'login',
+                'title' => 'Log In',
                 'content' => ''
             ]
         ]);

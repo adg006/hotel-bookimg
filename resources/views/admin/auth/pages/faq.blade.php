@@ -18,7 +18,8 @@
                                         <div class="col-md-12">
                                             <div class="mb-4">
                                                 <label class="form-label">Title</label>
-                                                <input type="text" class="form-control" name="title" value="{{ $faq_data->title }}">
+                                                <input type="text" class="form-control" name="title"
+                                                    value="{{ $faq_data->title }}">
                                             </div>
 
                                             <div class="mb-4">
