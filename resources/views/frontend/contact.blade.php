@@ -19,7 +19,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12">
-                    <form action="{{ route('send.email') }}" method="post" class="form_subscribe_ajax">
+                    <form action="{{ route('send.email') }}" method="post" class="form_contact_ajax">
                         @csrf
                         <div class="contact-form">
                             <div class="mb-3">
@@ -41,7 +41,7 @@
                                 <button type="submit" class="btn btn-primary bg-website">Send Message</button>
                             </div>
                         </div>
-                    </form>  
+                    </form>
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <div class="map">
@@ -54,4 +54,4 @@
 
     <div id="loader"></div>
 
- @endsection
+@endsection

@@ -23,6 +23,7 @@ use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\PrivacyController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Frontend\CheckoutController;
+use App\Http\Controllers\Frontend\SubscriberController;
 use App\Http\Controllers\Frontend\FrontendLoginController;
 
 /*
@@ -119,6 +120,8 @@ Route::get('/terms-and-conditions', [TnCController::class, 'tnc'])->name('tnc');
 Route::get('/privacy-policy', [PrivacyController::class, 'privacy'])->name('privacy');
 Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
 Route::post('/contact/email/send', [ContactController::class, 'email'])->name('send.email');
+Route::post('/subscriber/email/send', [SubscriberController::class, 'email'])->name('subscriber.send.email');
+Route::get('/subscriber/verify/{email}/{token}', [SubscriberController::class, 'verify'])->name('subscriber.verify');
 Route::get('/cart', [CartController::class, 'cart'])->name('cart');
 Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
 Route::get('/payment', [PaymentController::class, 'payment'])->name('payment');

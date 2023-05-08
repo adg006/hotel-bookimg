@@ -27,7 +27,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="col-md-3">
                 <div class="item">
                     <h2 class="heading">Contact</h2>
@@ -78,9 +78,11 @@
 
                     <p>In order to get the latest news and other great items, please subscribe us here: </p>
 
-                    <form action="" method="post">
+                    <form action="{{ route('subscriber.send.email') }}" method="post" class="form_subscribe_ajax">
+                        @csrf
                         <div class="form-group">
-                            <input type="text" name="" class="form-control">
+                            <input type="text" name="email" class="form-control">
+                            <span class="text-danger error-text email_error"></span>
                         </div>
 
                         <div class="form-group">
@@ -100,3 +102,5 @@
 <div class="scroll-top">
     <i class="fa fa-angle-up"></i>
 </div>
+
+<div id="loader"></div>

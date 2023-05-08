@@ -2,6 +2,43 @@
 
 	"use strict";
 
+	$(".form_contact_ajax").on('submit', function (e) {
+		e.preventDefault();
+		$('#loader').show();
+		var form = this;
+
+		$.ajax({
+			url: $(form).attr('action'),
+			method: $(form).attr('method'),
+			data: new FormData(form),
+			processData: false,
+			dataType: 'json',
+			contentType: false,
+
+			beforeSend: function () {
+				$(form).find('span.error-text').text('');
+			},
+
+			success: function (data) {
+				$("#loader").hide();
+
+				if (data.code == 0) {
+					$.each(data.error_message, function (prefix, val) {
+						$(form).find('span.' + prefix + '_error').text(val[0]);
+					});
+				} else if (data.code == 1) {
+					$(form)[0].reset();
+
+					iziToast.success({
+						title: '',
+						position: 'topRight',
+						message: data.success_message
+					});
+				}
+			}
+		});
+	});
+
 	$(".form_subscribe_ajax").on('submit', function (e) {
 		e.preventDefault();
 		$('#loader').show();
@@ -22,11 +59,11 @@
 			success: function (data) {
 				$("#loader").hide();
 
-				if(data.code == 0) {
+				if (data.code == 0) {
 					$.each(data.error_message, function (prefix, val) {
 						$(form).find('span.' + prefix + '_error').text(val[0]);
 					});
-				} else if(data.code == 1) {
+				} else if (data.code == 1) {
 					$(form)[0].reset();
 
 					iziToast.success({
